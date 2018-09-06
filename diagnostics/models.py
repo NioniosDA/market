@@ -305,6 +305,3 @@ def calculate_scores(sender, instance, *args, **kwargs):
 
 pre_save.connect(pre_save_receiver, sender=DiagnosticsQuestionnaire)
 post_save.connect(calculate_scores, sender=DiagnosticsQuestionnaire)
-
-
-

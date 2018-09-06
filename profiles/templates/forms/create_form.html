@@ -41,6 +41,8 @@
                       {% else %}
                         {% render_field field class="form-control is-valid" %}
                       {% endif %}
+										{% elif "Avatar" in field.label_tag %}
+		                    {% render_field field class="form-control-file" %}
                     {% else %}
                       {% render_field field class="form-control" %}
                     {% endif %}

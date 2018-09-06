@@ -120,7 +120,7 @@ def get_business_yearly_data(yearly_excel, data):
     accounts_receivable = []
     cashes_bank = yearly_excel[yearly_excel['Unnamed: 1'] == 'Cash & Equivalents']
     receivables = yearly_excel[yearly_excel['Unnamed: 1'] == 'Accounts Receivable']
-    payable = yearly_excel[yearly_excel['Unnamed: 1'] == 'Accounts Payable']
+    payable     = yearly_excel[yearly_excel['Unnamed: 1'] == 'Accounts Payable']
     for year in year_labels:
         cash_bank.append(cashes_bank.iloc[0][year])
         accounts_receivable.append(receivables.iloc[0][year])

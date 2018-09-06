@@ -51,6 +51,8 @@
                 <option value="{{ country.name }}">{{ country.name }}</option>
             {% endfor %}
         </select>
-    </div>
-     <button type="submit" class="btn btn-primary">Filter</button>
+    <label for="city">City</label>
+    <input type="text" class="form-control" placeholder="Search..." name="city" value="{{ request.GET.city }}">
+  </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
 </form>

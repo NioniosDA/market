@@ -6,10 +6,12 @@
 {% load static %}
 <main role="main" class="container-fluid">
     <div class="row">
-        <div class="col-xs-2 no-float bar-1">
+        <div class="col-lg-2 col-sm-3 no-float bar-1">
             <div class="avatar">
-                <img src="{% static 'logos/logo-white.png' %}" height="80">
-            </div>
+                <img src="{{ object.avatar.url }}" height="80">
+            </div>                         <!--HERE-->
+        {% include 'snippets/side_buttons.html' %}
+                                            <!--TO HERE-->
         </div>
         <div class="col-xs-8 no-float">
             <h1 class="h1 title"> <b>{{ object.get_company_name }}</b> </h1>
@@ -18,7 +20,13 @@
                 <div class="col-xs-6 no-float" style="padding-top: 30px;">
                     <p><b>Email:</b> {{ object.user }} </p>
                     <p><b>Country:</b> {{ object.get_country_display }}</p>
+                    {% if not not object.city%}
+                    <p><b>City:</b> {{ object.get_city }}</p>
+                    {% endif %}
                     <p><b>Legal Structure:</b> {{ object.get_legal_structure_display }}</p>
+                    {% if not not object.linkedin_urls%}
+                    <p><b>Linked-in:</b> <a href="{{ object.linkedin_urls }}">{{ object.get_linkedin_urls_text }}</a></p>
+                    {% endif %}
                 </div>
                 <div class="col-xs-6 no-float" style="padding-left: 40px;">
                     <p><b>Year Founded:</b> {{ object.get_year_founded_display }}</p>
@@ -30,7 +38,6 @@
             {% if request.user.is_staff %}
             <div class="row">
                 <div class="col-xs-6 no-float">
-                    <p>Have a look at my <a href="{% url 'info' slug=object.slug %}">information</a></p>
                     <p>I'm currently lacking:</p>
                     <ul>
                         {% if not kpi %}

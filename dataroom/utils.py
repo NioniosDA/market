@@ -6,9 +6,11 @@ from .models import AccordionFileModel
 dataroom_db = pd.read_csv(os.path.join(settings.STATIC_ROOT, 'dataroom_db', 'Dataroom_db.csv'))
 
 def get_dataroom_areas():
+    print('areas:{}'.format([str(x) for x in dataroom_db['Area'].unique()]))
     return [str(x) for x in dataroom_db['Area'].unique()]
 
 def get_dataroom_sub_areas(area):
+    print('sub-areas:{}'.format([str(x) for x in dataroom_db[dataroom_db['Area'] == area]['Sub-Area'].unique()]))
     return [str(x) for x in dataroom_db[dataroom_db['Area'] == area]['Sub-Area'].unique()]
 
 def get_dataroom_questions(area):

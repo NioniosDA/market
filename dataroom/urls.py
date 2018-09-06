@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^competition-form/$', DataRoomFormView.as_view(sub_area='Competition'), name='competition'),
     url(r'^marketing-form/$', DataRoomFormView.as_view(sub_area='Marketing'), name='marketing'),
     url(r'^procurement-form/$', DataRoomFormView.as_view(sub_area='Procurement'), name='procurement'),
+    url(r'^harvest-form/$', DataRoomFormView.as_view(sub_area='Harvest'), name='harvest'),
     url(r'^(?P<slug>[\w-]+)/$', DataRoomDetailView.as_view(), name='detail'),
 ]

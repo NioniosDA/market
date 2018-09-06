@@ -10,9 +10,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 	  		</button>
-			<a href="#" class="navbar-brand">
-				<img src="{% static 'logos/logo.png' %}" height="30" class="pull-left">
-			</a>
+			<a href="/" class="navbar-brand"><img src="{% static 'logos/logo.png' %}" height="30" class="pull-left"></a>
 			<span class="name pull-left">CHALLENGES MARKETPLACE</span>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-nav-demo">
@@ -22,14 +20,11 @@
 				</div>
 			</form>
 			<ul class="nav navbar-nav">
-				{% if user.is_staff %}
+
 					<li><a href="/search-companies/" id="nav-names">SMEs</a></li>
-                    {% if smeprofile %}
-                        <li><a href="{% url 'info' slug=smeprofile.slug %}" id="nav-names">{{ smeprofile.get_company_name }}'s Info</a></li>
-                    {% endif %}
-				{% elif user.is_sme and smeprofile %}
-					<li><a href="{% url 'info' slug=smeprofile.slug %}" id="nav-names">My Info</a></li>
-				{% endif %}
+          {% if smeprofile %}
+          <li><a href="/profile/sme/{{ smeprofile.slug }}/">{{ smeprofile.get_company_name }}'s Info</a></li>
+          {% endif %}
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">

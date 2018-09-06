@@ -7,6 +7,7 @@ import datetime
 from django.urls import reverse
 from .utils import unique_slug_generator
 from django.db.models import Q
+from urllib.parse import urlparse
 
 User = settings.AUTH_USER_MODEL
 
@@ -37,6 +38,7 @@ class SMEProfile(models.Model):
     legal_structure = models.CharField(max_length=2, choices=LEGAL_STRUCT)
     ownership = models.CharField(max_length=2, choices=OWNERSHIP)
     country = CountryField(blank_label='(select country)')
+    city = models.CharField(max_length=50, blank=True, null=True)
     year_founded = models.IntegerField(choices=YEAR_CHOICES, default=datetime.datetime.now().year)
     currency = models.CharField(max_length=50, choices=CURRENCIES)
     linkedin_urls = models.URLField(max_length=200, blank=True, null=True)
@@ -72,11 +74,18 @@ class SMEProfile(models.Model):
     def get_country(self):
         return self.country
 
+    def get_city(self):
+        return self.city
+
     def get_year_founded(self):
         return self.year_founded
 
     def get_currency(self):
         return self.currency
+
+    def get_linkedin_urls_text(self):
+        parsed_url = urlparse(self.linkedin_urls)
+        return parsed_url.hostname
 
     def get_linkedkin_urls(self):
         return self.linkedin_urls
@@ -176,5 +185,3 @@ def pre_save_receiver(sender, instance, *args, **kwargs):
 pre_save.connect(pre_save_receiver, sender=SMEProfile)
 pre_save.connect(pre_save_receiver, sender=StaffProfile)
 pre_save.connect(pre_save_receiver, sender=InvestorProfile)
-
-

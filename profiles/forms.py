@@ -14,10 +14,12 @@ class SMEForm(forms.ModelForm):
             'legal_structure',
             'ownership',
             'country',
+            'city',
             'year_founded',
             'currency',
             'linkedin_urls',
-            'sector'
+            'sector',
+            'avatar'
         ]
 
 class StaffForm(forms.ModelForm):

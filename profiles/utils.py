@@ -157,12 +157,17 @@ def add_filter_choices(context, user):
     return context
 
 def filter_search(self, qs):
+    avatar = self.request.GET.get('avatar')
     legal = self.request.GET.get('legal')
     owner = self.request.GET.get('owner')
     currency = self.request.GET.get('currency')
     sector = self.request.GET.get('sector')
     year = self.request.GET.get('year')
+    linkedin_urls = self.request.GET.get('linkedin_urls')
     country = self.request.GET.get('country')
+    city = self.request.GET.get('city')
+    if avatar:
+        qs = qs.filter(avatar__iexact=avatar)
     if legal:
         qs = qs.filter(legal_structure__iexact=legal)
     if owner:
@@ -177,4 +182,8 @@ def filter_search(self, qs):
         for q in qs:
             if q.get_country().name != country:
                 qs = qs.exclude(user=q.get_user())
+    if city:
+        qs = qs.filter(city__iexact=city)
+    if linkedin_urls:
+        qs = qs.filter(linkedin_urls__iexact=linkedin_urls)
     return qs

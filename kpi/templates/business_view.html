@@ -1,5 +1,4 @@
 {% extends "base_white.html" %}
-
 <script>
 {% block jquery %}
 
@@ -270,7 +269,7 @@ function cashChart(cash, receivable, payable, idName, labels){
 {% load static %}
 <main role="main" class="container-fluid">
 	<div class="row">
-		<div class="col-lg-2 col-sm-3">
+		<div class="col-lg-2 col-sm-3 no-float bar-1">
 			{% include 'snippets/side_buttons.html' %}
             {% if kpi %}
             <p>{{ smeprofile.get_company_name }}'s uploaded documents:</p>
