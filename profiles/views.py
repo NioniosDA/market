@@ -12,6 +12,10 @@ from django.contrib.auth.decorators import login_required
 
 User = get_user_model()
 
+class view404(TemplateView):
+        def view_404(request):
+            return redirect('/')
+
 class SMEProfileDetailView(DetailView):
 
     def get_object(self):
@@ -72,6 +76,12 @@ class SMEProfileCreateView(LoginRequiredMixin, CreateView):
 #             return HttpResponseRedirect(obj.get_absolute_url())
 #         else:
 #             return render(request, 'forms/create_form.html', {'form': form})
+
+
+class AboutView(TemplateView):
+    template_name = 'about.html'
+    def about(request):
+        return render(request, "/templates/about.html", {})
 
 
 class StaffProfileCreateView(LoginRequiredMixin, CreateView):

@@ -24,6 +24,10 @@
               {% endif %}
 
               {% for field in form.visible_fields %}
+								{% if field.name == "Harvest_0" %}
+									<p><h4>Here you can find the <a href="/static/dataroom_db/co-op_questionaire.xlsx">file</a> that includes all Co-op Metrics that should be taken into account.</h4></p>
+								{% endif %}
+
                 <div class="form-group">
                   {{ field.label_tag }}
 

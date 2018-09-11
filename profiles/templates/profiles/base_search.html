@@ -15,7 +15,7 @@
                 {% for sme in smes %}
                 <div class="list-group-item clearfix">
                     <div class="profile-teaser-left">
-                        <div class="profile-img"><img src="{% static 'logos/logo-white.png' %}"></div>
+                      <div class="profile-img"><img src="{{ sme.avatar.url }}" height="80"></div>
                     </div>
                     <div class="profile-teaser-main">
                         <h4 class="company-name"><a href="{% url 'profiles:detail-sme' slug=sme.slug %}">{{ sme.company_name }}</a></h4>

@@ -11,7 +11,7 @@
 				<span class="icon-bar"></span>
 	  		</button>
 			<a href="/" class="navbar-brand"><img src="{% static 'logos/logo.png' %}" height="30" class="pull-left"></a>
-			<span class="name pull-left">CHALLENGES MARKETPLACE</span>
+			<span class="name pull-left"><b>CHALLENGES MARKETPLACE</b></span>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-nav-demo">
 			<form class="navbar-form navbar-left" role="search">
@@ -23,7 +23,7 @@
 
 					<li><a href="/search-companies/" id="nav-names">SMEs</a></li>
           {% if smeprofile %}
-          <li><a href="/profile/sme/{{ smeprofile.slug }}/">{{ smeprofile.get_company_name }}'s Info</a></li>
+          <li><a style="color:white" href="/profile/sme/{{ smeprofile.slug }}/">{{ smeprofile.get_company_name }}'s Info</a></li>
           {% endif %}
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

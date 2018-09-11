@@ -12,13 +12,34 @@
 {% include 'snippets/navbar.html' %}
 
 {% block content %}
+<style>
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 50rem;
+  min-height: 100%;
+}
+
+.footer {
+ position: absolute;
+ right: 0;
+ left: 0;
+ bottom: 0;
+ padding: 1rem;
+ width: 100%;
+ background-color: #565656;
+ color: white;
+}
+</style>
+
 <div class="col-xs-offset-2 col-xs-8">
     <h1><b>Welcome to the NEW Challenges Marketplace.</b></h1>
     <h3>If this is your first time here please <a href="/register/">register</a>, otherwise <a href="/login/">Log in</a>.</h3>
 </div>
 
 <div class="col-xs-offset-2 col-xs-8">
-    <h4><b><u>About:</u></b></h4>
+
 </div>
 
 <div class="col-xs-offset-2 col-xs-8">
@@ -49,21 +70,21 @@
       more attractive to investors.</h5>
 </div>
 -->
-<div class="col-xs-offset-2 col-xs-8">
-    <h5><u>About Challenges:</u> Since 1999 we have worked in over 50 countries supporting people and enterprises
-      to work together to help their community have better access to goods, services and money.
-      By focusing on helping urban businesses to grow, we are allowing individuals, families and communities
-      up and down the supply chain to become prosperous. Prosperity isn’t just about counting wealth, it’s
-      about accessing all the benefits that wealth brings: access to safe drinking water; food security; a good
-      education; fair and equal job opportunities; decent health care and protection from the effects of
-      climate change.</h5>
-</div>
+<div class="footer">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3 col-sm-3">
+            <a style="color:white" href="https://challengesworldwide.com"><b>Challenges Worldwide</b></a>
+          </div>
+          <div class="col-lg-5 col-sm-3">
+            <center><a style="color:white" href="{% url 'about' %}"><b>About</b></a></center>
+          </div>
+          <div class="col-lg-1 col-xs-offset-2 col-sm-3">
+            <a style="color:white" href="https://challengesworldwide.com/contact"><b>Contact us</b></a>
+          </div>
+        </div>
+    </div>
 
-<div class="col-xs-offset-2 col-xs-8">
-    <h5>If we can help developing nations to become prosperous, their people have a better chance of
-      improving their standard of living without relying on international aid and charity. That is truly
-      sustainable development!</h5>
-</div>
 {% endblock content %}
 
 {% include 'snippets/js.html' %}

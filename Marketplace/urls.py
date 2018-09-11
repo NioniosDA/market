@@ -2,7 +2,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth.views import logout
 from accounts.views import RegisterView, LoginView, activate_user_view, AccountTypeView
-from profiles.views import SearchSMEView, HomePageView, HomeActivateView
+from profiles.views import SearchSMEView, HomePageView, HomeActivateView, AboutView, view404
 from businessplan.views import InfoView
 from django.conf import settings
 from django.conf.urls.static import static
@@ -10,6 +10,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomePageView.as_view(), name='base_home'),
+    url(r'^about/', AboutView.as_view(), name='about'),
     url(r'^activation/$', HomeActivateView.as_view(), name='base_home_activation'),
     url(r'^account/$', AccountTypeView.as_view(), name='account_type'),
     url(r'^login/$', LoginView.as_view(), name='login'),
@@ -27,3 +28,5 @@ urlpatterns = [
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'profiles.views.view_404'

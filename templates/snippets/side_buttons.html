@@ -40,7 +40,7 @@
     {% endif %}
     {% if diag is not None %}
         <form action="{{ diag.get_absolute_url }}">
-            <button class="button standard" type="submit">Diagnostics</button>
+            <button class="button standard" type="submit">Organizational Strengthening</button>
         </form>
     <div class="progress progress-buttons" style="margin-top:-55px; margin-bottom: 40px;">
         <div class="progress-bar progress-bar-buttons" role="progressbar" aria-valuenow="50"
@@ -49,12 +49,12 @@
       </div>
     {% else %}
         <form action="/diagnostics/">
-            <button class="button standard" style="color: #B0AFAF;" type="submit">Diagnostics</button>
+            <button class="button standard" style="color: #B0AFAF;" type="submit">Organizational Strengthening</button>
         </form>
     {% endif %}
     {% if diligence is not None %}
         <form action="{{ diligence.get_absolute_url }}">
-            <button class="button standard" type="submit">Due Diligence</button>
+            <button class="button standard" type="submit">Dilingence Checklist</button>
         </form>
     <div class="progress progress-buttons" style="margin-top:-55px; margin-bottom: 40px;">
         <div class="progress-bar progress-bar-buttons" role="progressbar" aria-valuenow="50"
@@ -63,7 +63,7 @@
       </div>
     {% else %}
         <form action="/diligenceroom/">
-            <button class="button standard" style="color: #B0AFAF;" type="submit">Due Diligence</button>
+            <button class="button standard" style="color: #B0AFAF;" type="submit">Dilingence Checklist</button>
         </form>
     {% endif %}
     {% if accordion is not None %}
